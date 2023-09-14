@@ -22,6 +22,12 @@ namespace MinecraftMaxWeapons
             string sword = "netherite_sword{Enchantments:[{id:sharpness,lvl:9999},{id:smite,lvl:9999},{id:bane_of_arthropods,lvl:9999},{id:cleaving,lvl:9999},{id:sweeping,lvl:9999},{id:fire_aspect,lvl:9999},{id:looting,lvl:9999},{id:thorns,lvl:9999}],Unbreakable:1} 1";
             output.AppendLine(String.Format("give {0} {1}", username, sword));
 
+            string shovel = "minecraft:netherite_shovel{Unbreakable:1,Enchantments:[{id:efficiency,lvl:1000},{id:fortune,lvl:1000}]};";
+            output.AppendLine(String.Format("give {0} {1}", username, shovel));
+
+            string elytra = "minecraft:elytra{ Unbreakable: 1,Enchantments: [{ id: mending,lvl: 1000}]}";
+            output.AppendLine(String.Format("give {0} {1}", username, elytra));
+
             string axe = "netherite_axe{Enchantments:[{id:sharpness,lvl:9999},{id:smite,lvl:9999},{id:bane_of_arthropods,lvl:9999},{id:thorns,lvl:9999},{id:fire_aspect,lvl:9999},{id:looting,lvl:9999},{id:fortune,lvl:9999},{id:efficiency,lvl:9999}],Unbreakable:1} 1";
             output.AppendLine(String.Format("give {0} {1}", username, axe));
 
