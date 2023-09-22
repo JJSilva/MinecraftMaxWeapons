@@ -58,8 +58,8 @@ namespace MinecraftMaxWeapons
 
             string arrows = "minecraft:arrow 256";
             output.AppendLine(String.Format("give {0} {1}", username, arrows));
-
-            string fireworks = "minecraft:firework_rocket 256";
+            
+            string fireworks = "minecraft:firework_rocket{Fireworks:{Flight: 127b}} 256";
             output.AppendLine(String.Format("give {0} {1}", username, fireworks));
 
             string effects = "absorption 1000000 4 true\neffect give @a conduit_power 1000000 255 true\neffect give @a regeneration 1000000 255 true\neffect give @a resistance 1000000 255 true\neffect give @a speed 1000000 1 true\neffect give @a strength 1000000 255 true\neffect give @a water_breathing 1000000 255 true\neffect give @a dolphins_grace 1000000 1 true\neffect give @a fire_resistance 1000000 255 true\neffect give @a glowing 1000000 255 true\neffect give @a haste 1000000 255 true\neffect give @a hero_of_the_village 99999 255 true\neffect give @a instant_damage 99999 255 true\neffect give @a instant_health 99999 255 true\neffect give @a jump_boost 99999 1 true\neffect give @a luck 99999 255 true\neffect give @a night_vision 99999 255 true";
@@ -68,7 +68,7 @@ namespace MinecraftMaxWeapons
             string experince = "999 levels";
             output.AppendLine(String.Format("experience add {0} {1}", username, experince));
 
-
+            File.WriteAllText("log.txt", output.ToString());
 
             string fifoPath = File.ReadAllLines("options.txt")[0];
             fifoPath = fifoPath + "/fifo";
@@ -81,7 +81,6 @@ namespace MinecraftMaxWeapons
             }
 
 
-            File.WriteAllText("log.txt",output.ToString());
 
             Console.WriteLine(output.ToString());
  
