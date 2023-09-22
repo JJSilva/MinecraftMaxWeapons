@@ -80,6 +80,9 @@ namespace MinecraftMaxWeapons
                 sw.WriteLine(output.ToString());
             }
 
+
+            File.WriteAllText("log.txt",output.ToString());
+
             Console.WriteLine(output.ToString());
  
             Console.ReadLine();
