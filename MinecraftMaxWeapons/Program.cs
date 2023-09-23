@@ -74,6 +74,8 @@ namespace MinecraftMaxWeapons
             fifoPath = fifoPath + "/fifo";
             FileStream fs = File.OpenWrite(fifoPath);
 
+            System.Threading.Thread.Sleep(1000);
+
             using (StreamWriter sw = new StreamWriter(fs))
             {
                 sw.WriteLine("say Weapons Given");
