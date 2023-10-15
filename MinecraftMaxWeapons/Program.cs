@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace MinecraftMaxWeapons
@@ -59,7 +60,7 @@ namespace MinecraftMaxWeapons
             string arrows = "minecraft:arrow 256";
             output.AppendLine(String.Format("give {0} {1}", username, arrows));
             
-            string fireworks = "minecraft:firework_rocket{Fireworks:{Flight: 127b}} 256";
+            string fireworks = "minecraft:firework_rocket{Fireworks:{Flight: 64}} 256";
             output.AppendLine(String.Format("give {0} {1}", username, fireworks));
 
             string effects = "absorption 1000000 4 true\neffect give @a conduit_power 1000000 255 true\neffect give @a regeneration 1000000 255 true\neffect give @a resistance 1000000 255 true\neffect give @a speed 1000000 1 true\neffect give @a strength 1000000 255 true\neffect give @a water_breathing 1000000 255 true\neffect give @a dolphins_grace 1000000 1 true\neffect give @a fire_resistance 1000000 255 true\neffect give @a glowing 1000000 255 true\neffect give @a haste 1000000 255 true\neffect give @a hero_of_the_village 99999 255 true\neffect give @a instant_damage 99999 255 true\neffect give @a instant_health 99999 255 true\neffect give @a jump_boost 99999 1 true\neffect give @a luck 99999 255 true\neffect give @a night_vision 99999 255 true";
@@ -70,7 +71,16 @@ namespace MinecraftMaxWeapons
 
             File.WriteAllText("log.txt", output.ToString());
 
-            string fifoPath = File.ReadAllLines("options.txt")[0];
+
+            string optionsPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "options.txt");
+
+            
+            Console.WriteLine(String.Format("Reading Options Path: {0}", optionsPath));
+
+            string fifoPath = File.ReadAllLines(optionsPath)[0];
+            Console.WriteLine(String.Format("Writing to FIFO Steam: {0}", fifoPath));
+
+            Console.ReadLine();
             fifoPath = fifoPath + "/fifo";
             FileStream fs = File.OpenWrite(fifoPath);
 
